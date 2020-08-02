@@ -11,4 +11,4 @@ USAGE:
 
 LICENSE:
 ========
-Distributed under the [WFTPL](http://www.wtfpl.net/)
+Distributed under the [WTFPL](http://www.wtfpl.net/)
