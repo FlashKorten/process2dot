@@ -1,0 +1,22 @@
+digraph G {
+
+  START [shape = doublecircle;];
+  checkForAB [label = "checkForAB"; shape = diamond;];
+  doTheThing [label = "doTheThing"; shape = rect;];
+  validateTheThing [label = "validateTheThing"; shape = diamond;];
+  waitForSomething [label = "waitForSomething"; shape = oval;];
+  success [label = "success"; shape = parallelogram;];
+  error [label = "error"; shape = parallelogram;];
+  END [shape = doublecircle;];
+
+  START -> checkForAB
+  checkForAB -> doTheThing [ label = "A" ];
+  checkForAB -> waitForSomething [ label = "B" ];
+  doTheThing -> validateTheThing
+  validateTheThing -> success [ label = "YAY" ];
+  validateTheThing -> error [ label = "NAY" ];
+  waitForSomething -> checkForAB [ label = "Event" ];
+  waitForSomething -> checkForAB [ label = "Timeout: PT5M" ];
+  success -> END;
+  error -> END;
+}
